@@ -5,33 +5,33 @@
     <section class="section-register--left">
       <div class="card">
         <div class="card-body">
-          <h1 class="card-title">Benefits of joining:</h1>
+          <h1 class="card-title">{{ __('Benefits of joining:') }}</h1>
           <ul class="card-text">
-            <li>Over 6,000 Proven Writers</li>
-            <li>Powerful Content Creation Tools</li>
-            <li>Easy-to-Use Platform</li>
-            <li>Fast Turnaround</li>
-            <li>Pay as You Go</li>
-            <li>Quality Guaranteed!</li>
+            <li>{{ __('Over 6,000 Proven Writers') }}</li>
+            <li>{{ __('Powerful Content Creation Tools') }}</li>
+            <li>{{ __('Easy-to-Use Platform') }}</li>
+            <li>{{ __('Fast Turnaround') }}</li>
+            <li>{{ __('Pay as You Go') }}</li>
+            <li>{{ __('Quality Guaranteed!') }}</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="section-register--right">
-      <h2 class="heading mb-5">Create Your Free Account</h2>
+      <h2 class="heading mb-5">{{ __("Create Your Free Account") }}</h2>
       <p class="heading--sub mb-4 d-inline">
-        High-quality content written on demand by the
-        <span class="green"> web's best writers. </span>
+        {{ __("High-quality content written on demand by the") }}
+        <span class="green"> {{ __("web's best writers.") }} </span>
       </p>
       <p>
-        Sign up is easy and free. You don't pay anything until you're ready to
-        order content.
+        {{ __('  Sign up is easy and free. You don't pay anything until you're ready to
+        order content.') }}
       </p>
       <form method="POST" action="{{ route('register') }}">
         @csrf
         <div class="mt-3">
-          <label for="" class="form-label">First Name</label>
+          <label for="" class="form-label">{{ __('First Name') }}</label>
           <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
           @error('name')
@@ -41,7 +41,7 @@
           @enderror
         </div>
         <div class="mt-3">
-          <label for="" class="form-label">Email</label>
+          <label for="" class="form-label">{{ __('Email') }}</label>
           <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
             @error('email')
@@ -51,7 +51,7 @@
             @enderror
         </div>
         <div class="mt-3">
-          <label for="" class="form-label">Password</label>
+          <label for="" class="form-label">{{ __('Password') }}</label>
           <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
           @error('password')
@@ -59,6 +59,10 @@
                   <strong>{{ $message }}</strong>
               </span>
           @enderror
+        </div>
+        <div class="mt-3">
+            {!! NoCaptcha::renderJs() !!}
+            {!! NoCaptcha::display() !!}
         </div>
         <div class="mt-5">
             <button type='submit' class="btn btn-blue">Sign Up</button>

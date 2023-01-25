@@ -89,7 +89,7 @@
                 </div>
             </div>
         </nav>
-
+        <h1 style="margin-top: 300px; font-size:60px" class="text-light text-center">WELLCOME OUR HOME PAGET</h1>
         <main class="">
             @yield('content')
         </main>
