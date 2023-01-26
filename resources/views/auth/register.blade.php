@@ -25,8 +25,8 @@
         <span class="green"> {{ __("web's best writers.") }} </span>
       </p>
       <p>
-        {{ __('  Sign up is easy and free. You don't pay anything until you're ready to
-        order content.') }}
+        {{ __("Sign up is easy and free. You don't pay anything until you're ready to
+        order content.") }}
       </p>
       <form method="POST" action="{{ route('register') }}">
         @csrf
@@ -63,6 +63,11 @@
         <div class="mt-3">
             {!! NoCaptcha::renderJs() !!}
             {!! NoCaptcha::display() !!}
+            @error('g-recaptcha-response')
+            <span>
+                <strong class="text-danger">{{ $message }}</strong>
+            </span>
+            @enderror
         </div>
         <div class="mt-5">
             <button type='submit' class="btn btn-blue">Sign Up</button>

@@ -3,7 +3,7 @@
 @section('content')
 <main class="section-login">
     <section class="section-login--logo">
-      <a href="index.html">
+      <a class="" href="{{ route('login') }}">
         <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="logo" class="img-fluid" />
       </a>
     </section>
@@ -41,6 +41,11 @@
                   <div class="mt-3">
                     {!! NoCaptcha::renderJs() !!}
                     {!! NoCaptcha::display() !!}
+                    @error('g-recaptcha-response')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                   </div>
                   <div class="mt-3">
                     <div class="form-check">
